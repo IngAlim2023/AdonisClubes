@@ -45,4 +45,13 @@ export default class DemarcacionController {
         return response.json({msj:'Error al eliminar'})
     }
   }
+  async readDemarcacionById({params, response}:HttpContext){
+    try{
+      const {id} = params;
+      const res = await demarcacionN.readById(id);
+      return response.json({msj:'Información encontrada', data: res});
+    } catch(e){
+      response.json({msj:'No se encontro la informarción'})
+    }
+  }
 }

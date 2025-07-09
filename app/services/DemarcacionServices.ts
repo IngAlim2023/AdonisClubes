@@ -20,4 +20,9 @@ export default class DemarcacionServices {
     
     return await deleted.delete(); 
   }
+  async readById(id:any){
+    const demarcacion = await Demarcacion.query().where('CodDem', id);
+    
+    return demarcacion; 
+  }
 }
