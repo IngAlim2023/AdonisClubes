@@ -2,27 +2,23 @@ import Demarcacion from '#models/demarcacion'
 import { InfoDemarcacion } from '#controllers/DemarcacionController'
 
 export default class DemarcacionServices {
-  async create({ demarcacion }:InfoDemarcacion) {
-    const res = await Demarcacion.create({ demarcacion })
-    return res
+  async create({ demarcacion }: InfoDemarcacion) {
+    return await Demarcacion.create({ demarcacion })
   }
-  async read(){
-    const res = await Demarcacion.all();
-    return res
+  async read() {
+    return await Demarcacion.all()
   }
-  async update(data:InfoDemarcacion, id: any){
-    const updated  = await Demarcacion.findOrFail(id);
-    updated.demarcacion = data.demarcacion
-    return await updated.save()
+  async update(data: InfoDemarcacion, id: any) {
+    const demarcacion = await Demarcacion.findOrFail(id)
+    demarcacion.demarcacion = data.demarcacion
+    return await demarcacion.save()
   }
-  async delete(id:any){
-    const deleted = await Demarcacion.findOrFail(id);
-    
-    return await deleted.delete(); 
+  async delete(id: any) {
+    const demarcacion = await Demarcacion.findOrFail(id)
+    return await demarcacion.delete()
   }
-  async readById(id:any){
-    const demarcacion = await Demarcacion.query().where('CodDem', id);
-    
-    return demarcacion; 
+  async readById(id: any) {
+    const demarcacion = await Demarcacion.find(id)
+    return demarcacion
   }
 }

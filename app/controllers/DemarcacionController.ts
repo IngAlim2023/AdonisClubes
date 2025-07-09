@@ -10,48 +10,57 @@ export interface InfoDemarcacion {
 export default class DemarcacionController {
   async createDemarcacion({ request, response }: HttpContext) {
     try {
-      const { demarcacion } = request.body()
+      const { demarcacion } = request.body();
+      if(!demarcacion){
+        return response.status(400).json({msj:'El campo demarcacion es obligatorio'})
+      }
       const res = await demarcacionN.create({ demarcacion })
-      return response.json({ msj: 'demarcación creada', datos: res })
+      return response.status(201).json({ msj: 'demarcación creada', datos: res })
     } catch (e) {
-      return response.json({ msj: 'Error al crear la demarcación' })
+      return response.status(500).json({ msj: 'Error al crear la demarcación' })
     }
   }
   async readDemarcaciones({ response }: HttpContext) {
     try {
       const res = await demarcacionN.read()
-      return response.json({ msj: 'Información obtenida', data: res })
+      return response.status(201).json({ msj: 'Información obtenida', data: res })
     } catch (e) {
-      return response.json({ msj: 'Error al encontrar la información' })
+      return response.status(500).json({ msj: 'Error al encontrar la información' })
     }
   }
   async updateDemarcacion({ params, request, response }: HttpContext) {
     try {
-        const { id } = params;
-        const {demarcacion} = request.body();
+      const { id } = params
+      const { demarcacion } = request.body()
+      if(!demarcacion){
+        return response.status(400).json({msj:'El campo demarcacion es obligatorio'})
+      }
 
-      const res = await demarcacionN.update({demarcacion}, id)
-      return response.json({ msj: 'Informacion Actualizada', data: res })
+      const res = await demarcacionN.update({ demarcacion }, id)
+      return response.status(201).json({ msj: 'Informacion Actualizada', data: res })
     } catch (e) {
-      return response.json({ msj: 'Error al actualizar la información' })
+      return response.status(500).json({ msj: 'Error al actualizar la información' })
     }
   }
-  async deleteDemarcacion({params, response}:HttpContext){
-    try{
-       const {id} = params;
-       const res = await demarcacionN.delete(id);
-       return response.json({msj:'Demarcación eliminada', data: res}) 
-    } catch (e){
-        return response.json({msj:'Error al eliminar'})
+  async deleteDemarcacion({ params, response }: HttpContext) {
+    try {
+      const { id } = params
+      const res = await demarcacionN.delete(id)
+      return response.status(201).json({ msj: 'Demarcación eliminada', data: res })
+    } catch (e) {
+      return response.status(500).json({ msj: 'Error al eliminar' })
     }
   }
-  async readDemarcacionById({params, response}:HttpContext){
-    try{
-      const {id} = params;
+  async readDemarcacionById({ params, response }: HttpContext) {
+    try {
+      const { id } = params
       const res = await demarcacionN.readById(id);
-      return response.json({msj:'Información encontrada', data: res});
-    } catch(e){
-      response.json({msj:'No se encontro la informarción'})
+      if(res === null){
+        return response.status(400).json({ msj: 'Información no encontrada, verifica el ID'})
+      }
+      return response.status(200).json({ msj: 'Información encontrada', data: res })
+    } catch (e) {
+      response.status(500).json({ msj: 'No se encontro la informarción' })
     }
   }
 }
