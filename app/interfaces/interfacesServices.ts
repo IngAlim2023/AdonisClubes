@@ -21,3 +21,19 @@ export interface InfoPaises{
   nombrePais: string
   comunitario: string
 }
+
+//Informacion Clubes:
+export interface InfoClubes{
+  club:string
+  nombre:string
+  direccion:string
+  poblacion:string
+  codPostal:string
+  tlfno:string
+  colores:string
+  himno:string
+  fax:string
+  anioFundacion:number
+  presidente:string
+  vicepresidente:string
+}
