@@ -1,5 +1,5 @@
 import Demarcacion from '#models/demarcacion'
-import { InfoDemarcacion } from '#controllers/DemarcacionController'
+import { InfoDemarcacion } from '../interfaces/interfacesServices.js'
 
 export default class DemarcacionServices {
   async create({ demarcacion }: InfoDemarcacion) {

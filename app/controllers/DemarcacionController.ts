@@ -3,9 +3,6 @@ import { HttpContext } from '@adonisjs/core/http'
 
 const demarcacionN = new DemarcacionServices()
 
-export interface InfoDemarcacion {
-  demarcacion: string
-}
 
 export default class DemarcacionController {
   async createDemarcacion({ request, response }: HttpContext) {

@@ -1,8 +1,5 @@
 import Campeonato from "#models/campeonato";
-
-export interface InfoCampeonato{
-    nombreTrofeo:string
-}
+import { InfoCampeonato } from "../interfaces/interfacesServices.js";
 
 export default class CampeonatoServices{
     async create ({nombreTrofeo}:InfoCampeonato){
