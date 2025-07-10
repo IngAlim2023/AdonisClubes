@@ -37,3 +37,12 @@ export interface InfoClubes{
   presidente:string
   vicepresidente:string
 }
+
+//Información Jugadores:
+export interface InfoJugadores{
+  club:string
+  jugador:string
+  dorsal:string
+  CodPais:number
+  CodDem:number
+}
