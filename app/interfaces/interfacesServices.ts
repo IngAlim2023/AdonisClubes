@@ -58,3 +58,15 @@ export interface InfoEsponsor{
   esponsor:string
   CodClub:number
 }
+
+//Información Socios:
+export interface InfoSocios{
+  codPost:string
+  nombre:string
+  apellidos: string
+  direccion: string
+  provincia: string
+  fechaAlta: Date
+  cuotaActual: number
+  CodClub: number
+}
