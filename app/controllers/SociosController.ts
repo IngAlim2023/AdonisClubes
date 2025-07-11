@@ -12,7 +12,6 @@ export default class SociosController {
       const socio = await socioN.create(data);
       return response.status(201).json({msj:'Registro creado', data:socio})
     } catch (e) {
-      console.log(e)
       return response.status(500).json({ msj: 'Error al crear el registro' })
     }
   }

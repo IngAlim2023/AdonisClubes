@@ -17,56 +17,64 @@ export interface InfoEntrenadores {
 }
 
 //Información Paises:
-export interface InfoPaises{
+export interface InfoPaises {
   nombrePais: string
   comunitario: string
 }
 
 //Informacion Clubes:
-export interface InfoClubes{
-  club:string
-  nombre:string
-  direccion:string
-  poblacion:string
-  codPostal:string
-  tlfno:string
-  colores:string
-  himno:string
-  fax:string
-  anioFundacion:number
-  presidente:string
-  vicepresidente:string
+export interface InfoClubes {
+  club: string
+  nombre: string
+  direccion: string
+  poblacion: string
+  codPostal: string
+  tlfno: string
+  colores: string
+  himno: string
+  fax: string
+  anioFundacion: number
+  presidente: string
+  vicepresidente: string
 }
 
 //Información Jugadores:
-export interface InfoJugadores{
-  club:string
-  jugador:string
-  dorsal:string
-  CodPais:number
-  CodDem:number
+export interface InfoJugadores {
+  club: string
+  jugador: string
+  dorsal: string
+  CodPais: number
+  CodDem: number
 }
 
 //Información Equipación:
-export interface InfoEquipacion{
-  enCasa:string
-  CodClub:number
+export interface InfoEquipacion {
+  enCasa: string
+  CodClub: number
 }
 
 //Información Esponsor:
-export interface InfoEsponsor{
-  esponsor:string
-  CodClub:number
+export interface InfoEsponsor {
+  esponsor: string
+  CodClub: number
 }
 
 //Información Socios:
-export interface InfoSocios{
-  codPost:string
-  nombre:string
+export interface InfoSocios {
+  codPost: string
+  nombre: string
   apellidos: string
   direccion: string
   provincia: string
   fechaAlta: Date
   cuotaActual: number
   CodClub: number
+}
+
+//Información Palmares:
+
+export interface InfoPalmares {
+  CodClub: number
+  CodTrofeo: number
+  anio: number
 }
