@@ -12,7 +12,7 @@ export default class extends BaseSchema {
       table.string('direccion')
       table.string('provincia')
       table.date('fechaAlta')
-      table.string('cuotaActual')
+      table.integer('cuotaActual')
       table.integer('CodClub').unsigned().references('CodClub').inTable('clubes')
 
       table.timestamp('created_at')
