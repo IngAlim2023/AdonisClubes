@@ -52,3 +52,9 @@ export interface InfoEquipacion{
   enCasa:string
   CodClub:number
 }
+
+//Información Esponsor:
+export interface InfoEsponsor{
+  esponsor:string
+  CodClub:number
+}
