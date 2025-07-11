@@ -46,3 +46,9 @@ export interface InfoJugadores{
   CodPais:number
   CodDem:number
 }
+
+//Información Equipación:
+export interface InfoEquipacion{
+  enCasa:string
+  CodClub:number
+}
