@@ -78,3 +78,11 @@ export interface InfoPalmares {
   CodTrofeo: number
   anio: number
 }
+
+//Información ClubJugadores:
+
+export interface InfoClubJugador {
+  CodClub: number
+  CodJugador: number
+  liga: string
+}
