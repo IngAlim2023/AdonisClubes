@@ -86,3 +86,18 @@ export interface InfoClubJugador {
   CodJugador: number
   liga: string
 }
+
+//Información de los Estadios:
+
+export interface InfoEstadios {
+  estadio:string
+  direccion: string
+  codPostal: number
+  poblacion: number
+  provincia: string
+  capacidad: number
+  sentados: number
+  inauguracion: Date
+  dimensiones: string
+  CodClub: number
+}
